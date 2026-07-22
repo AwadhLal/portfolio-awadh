@@ -26,11 +26,14 @@ app.use(helmet({ crossOriginResourcePolicy: false }));
 const allowedOrigins = [
   "http://localhost:5173",
   "https://portfolio-awadh.vercel.app",
+  "https://portfolio.awadhpatel.in",
+  "https://awadhpatel.in",
+  "https://www.awadhpatel.in",
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin(origin, callback) {
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
