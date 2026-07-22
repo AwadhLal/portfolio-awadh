@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-parchment font-serif antialiased;
+    background-image: radial-gradient(circle at 1px 1px,
+        rgba(237, 233, 224, 0.045) 1px,
+        transparent 0);
+    background-size: 28px 28px;
+  }
+
+  ::selection {
+    @apply bg-teal-accent/30 text-parchment;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4fd1c5;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-teal-accent;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl font-semibold text-parchment tracking-tight;
+  }
+
+  .panel {
+    @apply bg-ink-panel border border-ink-border rounded-lg;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-amber-accent text-ink font-display font-semibold px-5 py-3 rounded-md hover:bg-amber-accent/90 active:scale-[0.98] transition-all duration-150;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border border-ink-border text-parchment font-display font-medium px-5 py-3 rounded-md hover:border-teal-accent hover:text-teal-accent active:scale-[0.98] transition-all duration-150;
+  }
+
+  .field-label {
+    @apply font-mono text-xs uppercase tracking-wider text-slate-soft mb-1.5 block;
+  }
+
+  .field-input {
+    @apply w-full bg-ink border border-ink-border rounded-md px-3.5 py-2.5 text-parchment placeholder:text-slate-soft/60 focus:border-teal-accent transition-colors duration-150 outline-none;
+  }
+}
